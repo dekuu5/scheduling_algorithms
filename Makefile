@@ -1,15 +1,22 @@
+
 CC = gcc
 CFLAGS = -I./algorithms -Wall
-LIB = algorithms/scheduling.c
+SRC = algorithms/queue.c algorithms/fcfs.c algorithms/grant_chart.c algorithms/scheduling.c
 BIN_DIR = bin
+TEST_FLAGS = -lcunit
 
-all: test_fcfs cli_program
+all: directories test_fcfs cli_program
 
-test_fcfs:
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/test_fcfs test/test_fcfs.c $(LIB)
+directories:
+	mkdir -p $(BIN_DIR)
 
-cli_program:
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/cli_program cli/main.c $(LIB)
+test_fcfs: directories
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/test_fcfs test/test_fcfs_m.c $(SRC)
+
+cli_program: directories
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/cli_program cli/main.c $(SRC)
 
 clean:
 	rm -rf $(BIN_DIR)/*
+
+.PHONY: all clean test directories
