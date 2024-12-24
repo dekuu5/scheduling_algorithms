@@ -14,9 +14,6 @@ void printProcessResults(Process processes[], ProcessResult results[], int n) {
     }
 }
 
-void sjf(Process processes[], int n, ProcessResult results[], GrantChartNode** grantChartHead) {
-    // Shortest Job First (SJF) scheduling algorithm implementation
-}
 
 void rr(Process processes[], int n, int quantum, ProcessResult results[], GrantChartNode** grantChartHead) {
     // Round Robin (RR) scheduling algorithm implementation

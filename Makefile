@@ -13,6 +13,14 @@ directories:
 test_fcfs: directories
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/test_fcfs test/test_fcfs_m.c $(SRC)
 
+test_sjf: directories
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/test_sjf test/test_sjf.c $(SRC) 
+
+
+test_rr: directories
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/test_rr test/test_rr.c $(SRC) 
+
+
 cli_program: directories
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/cli_program cli/main.c $(SRC)
 
