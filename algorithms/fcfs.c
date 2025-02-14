@@ -1,5 +1,12 @@
 #include "scheduling.h"
 #include <stdio.h>
+#include <stdlib.h>
+
+// int compareArrivalTime(const void* a, const void* b) {
+//     Process* processA = (Process*)a;
+//     Process* processB = (Process*)b;
+//     return processA->at - processB->at;
+// }
 
 void fcfs(Process processes[], int n, ProcessResult results[], GrantChartNode** grantChartHead) {
     Queue* queue = createQueue();
@@ -8,16 +15,8 @@ void fcfs(Process processes[], int n, ProcessResult results[], GrantChartNode** 
     int visited[n];
     for (int i = 0; i < n; i++) visited[i] = 0;
 
-    // Sort processes by arrival time
-    for (int i = 0; i < n - 1; i++) {
-        for (int j = 0; j < n - i - 1; j++) {
-            if (processes[j].at > processes[j + 1].at) {
-                Process temp = processes[j];
-                processes[j] = processes[j + 1];
-                processes[j + 1] = temp;
-            }
-        }
-    }
+
+    qsort(processes, n, sizeof(Process), compareArrivalTime);
 
     while (completed < n) {
         for (int i = 0; i < n; i++) {

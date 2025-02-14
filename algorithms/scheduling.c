@@ -4,7 +4,11 @@
 #include "scheduling.h"
 #include <stdlib.h>
 
-
+int compareArrivalTime(const void* a, const void* b) {
+    Process* processA = (Process*)a;
+    Process* processB = (Process*)b;
+    return processA->at - processB->at;
+}
 
 
 void printProcessResults(Process processes[], ProcessResult results[], int n) {
@@ -14,8 +18,4 @@ void printProcessResults(Process processes[], ProcessResult results[], int n) {
     }
 }
 
-
-void rr(Process processes[], int n, int quantum, ProcessResult results[], GrantChartNode** grantChartHead) {
-    // Round Robin (RR) scheduling algorithm implementation
-}
 

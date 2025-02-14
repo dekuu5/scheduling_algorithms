@@ -1,7 +1,7 @@
 
 CC = gcc
 CFLAGS = -I./algorithms -Wall
-SRC = algorithms/queue.c algorithms/fcfs.c algorithms/grant_chart.c algorithms/scheduling.c
+SRC = algorithms/queue.c algorithms/fcfs.c algorithms/grant_chart.c algorithms/scheduling.c algorithms/rr.c algorithms/sjf.c algorithms/fcfs_stack.c algorithms/stack.c
 BIN_DIR = bin
 TEST_FLAGS = -lcunit
 
